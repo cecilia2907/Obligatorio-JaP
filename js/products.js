@@ -3,6 +3,9 @@
 //con la información básica (precio, nombre, breve descripción) 
 //respectiva a cada producto.
 
+const PRODUCTS_URL = "https://japdevdep.github.io/ecommerce-api/product/all.json";
+
+
 function LoadJSONProductos () {
     fetch(PRODUCTS_URL)
         .then(response => response.json())
