@@ -12,18 +12,17 @@ function LoadJSONProductos () {
             alert(err)
         })
 }
-
 LoadJSONProductos();
 
 
-function Productos(data) {
+function Productos(json) {
 
-    for (var i=0; i<data.lenght; i++) {
+    for (var i=0; i<json.lenght; i++) {
         
-        productos += '<div class="producos">' + data.name + data.description + data.cost;
+        productos += '<div class="producos">' + json.name + json.description + json.cost;
     }
 
-    document.getElementsByClassName("container p-5").innerHTML = `${productos}`;
+    document.getElementsByClassName("container p-5").innerHTML = ${productos};
 };
 
 
