@@ -22,7 +22,7 @@ function Productos(json) {
         productos += '<div class="producos">' + json.name + json.description + json.cost;
     }
 
-    document.getElementsByClassName("container p-5").innerHTML = ${productos};
+    document.getElementsByClassName("container p-5").innerHTML = productos;
 };
 
 
