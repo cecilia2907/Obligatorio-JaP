@@ -22,8 +22,9 @@ function Productos(data) {
     for (var i=0; i<data.lenght; i++) {
         
         productos += '<div class="producos">' + data.name + data.description + data.cost;
-    
     }
+
+    document.getElementsByClassName("container p-5").innerHTML = `${productos}`;
 };
 
 
