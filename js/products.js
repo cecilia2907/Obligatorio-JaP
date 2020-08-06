@@ -9,7 +9,7 @@ function LoadJSONProductos () {
         .then(response => response.json())
         .then(json => Productos(json))
         .catch(err => {
-            console.log(err)
+            alert(err)
         })
 }
 
@@ -17,8 +17,6 @@ LoadJSONProductos();
 
 
 function Productos(data) {
-    
-    let productos = "";
 
     for (var i=0; i<data.lenght; i++) {
         
