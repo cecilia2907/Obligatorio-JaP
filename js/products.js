@@ -7,7 +7,7 @@ function LoadJSONProductos () {
     const PRODUCTS_URL = "https://japdevdep.github.io/ecommerce-api/product/all.json";
     fetch(PRODUCTS_URL)
         .then(response => response.json())
-        .then(json => Productos(json))
+        .then(json => productos(json))
         .catch(err => {
             alert(err)
         })
@@ -15,7 +15,9 @@ function LoadJSONProductos () {
 LoadJSONProductos();
 
 
-function Productos(json) {
+function productos(json) {
+
+    let productos;
 
     for (var i=0; i<json.lenght; i++) {
         
