@@ -34,14 +34,14 @@ function showProductos(productos) {
     <div class="list-group-item list-group-item-action">
         <div class="row">
             <div class="col-3">
-                <img src="${productos[0].imgSrc}" alt="${productos[0].description}" class="img-thumbnail">
+                <img src="${productos[i].imgSrc}" alt="${productos[i].description}" class="img-thumbnail">
             </div>
             <div class="col">
                 <div class="d-flex w-100 justify-content-between">
-                    <h4 class="mb-1">${productos[0].name}</h4>
-                    <small class="text-muted">${productos[0].currency} + ${productos[0].price}</small>
+                    <h4 class="mb-1">${productos[i].name}</h4>
+                    <small class="text-muted">${productos[i].currency} ${productos[i].cost}</small>
                 </div>
-                <p class="mb-1">${productos[0].description}</p>
+                <p class="mb-1">${productos[i].description}</p>
             </div>
         </div>
     </div>
