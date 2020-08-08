@@ -23,7 +23,7 @@ function traerProductos () {
         })
 }
 
-function showProducts(productos) {
+function showProductos(productos) {
     console.log(productos);
 
     contenido.innerHTML = " "
