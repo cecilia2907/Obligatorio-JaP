@@ -31,6 +31,6 @@ function validar() {
 
 // Función que direcciona a la homepage 
 function redirigir() {
-    window.location.href = "index.html";
+    window.location.href = "home.html";
 }
 
