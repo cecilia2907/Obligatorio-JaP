@@ -139,3 +139,25 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+/* Estilo del formulario de ingreso */
+
+.signin-logo {
+  width: 100%;
+  height: 30%;
+}
+
+.form-signin {
+  max-width: 50%;
+  max-height: 50%;
+  text-align: center;
+}
+
+.btn {
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.container {
+  text-align: center;
+}

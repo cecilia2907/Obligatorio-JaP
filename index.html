@@ -13,6 +13,7 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+
   <style>
     html, body{
       height: 100%;
@@ -35,6 +36,7 @@
       margin: auto;
     }
   </style>
+
 </head>
 
 <body class="text-center">
@@ -46,12 +48,12 @@
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div>-->
     <form class="form-signin">
-      <img class="mb-4" src="img/login.png" alt="" width="100%" height="30%">
+      <img class="mb-4 signin-logo" src="img/login.png" alt="" width="100%" height="30%">
       <h1 class="h3 mb-3 font-weight-normal">Ingresa</h1>
       <label for="inputEmail" class="sr-only">Correo Electrónico</label>
-      <input type="email" id="usuario" class="form-control" placeholder="Correo Electrónico" >
+      <input type="email" id="usuario" class="form-control" placeholder="Correo Electrónico" required>
       <label for="inputPassword" class="sr-only">Contraseña</label>
-      <input type="password" id="contrasena" class="form-control" placeholder="Contraseña" >
+      <input type="password" id="contrasena" class="form-control" placeholder="Contraseña" required>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Recordarme
