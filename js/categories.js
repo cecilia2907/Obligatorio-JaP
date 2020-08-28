@@ -15,13 +15,15 @@ function sortCategories(criteria, array){
             if ( a.name > b.name ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_DESC_BY_NAME){
+    }
+    else if (criteria === ORDER_DESC_BY_NAME){
         result = array.sort(function(a, b) {
             if ( a.name > b.name ){ return -1; }
             if ( a.name < b.name ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_BY_PROD_COUNT){
+    }
+    else if (criteria === ORDER_BY_PROD_COUNT){
         result = array.sort(function(a, b) {
             let aCount = parseInt(a.productCount);
             let bCount = parseInt(b.productCount);
@@ -83,10 +85,11 @@ function sortAndShowCategories(sortCriteria, categoriesArray){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(CATEGORIES_URL).then(function(resultObj){
-        if (resultObj.status === "ok"){
-            sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
-        }
+    getJSONData(CATEGORIES_URL)
+        .then(function(resultObj){
+            if (resultObj.status === "ok"){
+                sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
+            }
     });
 
     document.getElementById("sortAsc").addEventListener("click", function(){

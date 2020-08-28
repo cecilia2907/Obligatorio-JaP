@@ -47,3 +47,8 @@ var getJSONData = function(url){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 });
+
+//Función que setea el nombre de usuario en el span con id user
+
+document.getElementById("user").innerHTML = localStorage.getItem("Usuario");
+

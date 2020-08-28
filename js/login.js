@@ -5,31 +5,38 @@
     
 //});
 
-// Funcioón que se ejecuta una vez que se hace click en el botón
+// Función que se ejecuta una vez que se hace click en el botón
 document.getElementById("boton").addEventListener("click", function() {
     validar();
 });
 
-// Funcioón que valida si se ingresoó usuario y contraseña
-function validar() {
-    let usuario = document.getElementById("usuario").value;
-    let contrasena = document.getElementById("contrasena").value;
+let usuario = document.getElementById("usuario");
+let contrasena = document.getElementById("contrasena");
 
-    if (usuario == null || usuario == "") {
-        alert("Introduzca su Correo Electrónico");
+// Función que valida si se ingresó usuario y contraseña al hacer click en el botón
+function validar() {
+
+    if (!usuario.value) { //== null || usuario.value == "") {
+        alert("Introduzca su Usuario");
         return false;
     }
-    if (contrasena == null || contrasena == "") {
+    if (!contrasena.value) { //== null || contrasena.value == "") {
         alert("Introduzca su contraseña");
         return false;
     }
     else {  
-        alert("Ingreso Correcto")
+        alert("Ingreso Correcto");
+        guardar(usuario.value);
         redirigir();
     }
 }
 
-// Función que direcciona a la homepage 
+//Función que guarda el nombre de usuario
+function guardar(user) {  
+    localStorage.setItem("Usuario", user);
+}
+
+// Función que direcciona a la homepage luego de haber validado y guardado usuario
 function redirigir() {
     window.location.href = "home.html";
 }
