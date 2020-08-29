@@ -6,6 +6,8 @@ var currentSortCriteria = undefined;
 var precioMin = undefined;
 var precioMax = undefined;
 
+// Función que ordena los productos
+
 function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_COST)
@@ -33,6 +35,8 @@ function sortCategories(criteria, array){
     return result;
 }
 
+//Función que muestra los productos
+
 function showProductsList(){
 
     let htmlContentToAppend = "";
@@ -51,7 +55,7 @@ function showProductsList(){
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1 nombre">`+ product.name +`</h4>
-                            <small class="text-muted">${product.currency} ${product.cost}</small>
+                            <small class="text-muted">`+ product.currency +` `+ product.cost +`</small>
                         </div>
                         <p class="mb-1 descripcion">` + product.description + `</p>
                     </div>
@@ -63,10 +67,15 @@ function showProductsList(){
         document.getElementById("lista-de-productos").innerHTML = htmlContentToAppend;
     }
 
-    //Función que busca los productos de la lista seguún lo que se ingresó en el buscador
-    document.getElementById("buscador").addEventListener("keyup", function(){
+    //Evento que lanza la función buscar cuando se ingresa texto en el buscador
+
+    document.getElementById("buscador").addEventListener("input", function() {
+        buscar();
+    });
     
-    //console.log("prueba");
+    //Función buscar que busca los productos de la lista según lo que se ingresó en el buscador
+
+    function buscar() {
 
     let input = document.getElementById("buscador");
     let filter = input.value.toUpperCase();
@@ -88,10 +97,11 @@ function showProductsList(){
         } else {
             prodBuscados[i].style.display = "none";
         }
+    };
     }
-    });
 }
 
+// Función que ordena y muestra
 
 function sortAndShowProducts(sortCriteria, productsArray){
     currentSortCriteria = sortCriteria;
@@ -110,6 +120,7 @@ function sortAndShowProducts(sortCriteria, productsArray){
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL)
         .then(function(resultObj){
