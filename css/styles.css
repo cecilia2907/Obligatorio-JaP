@@ -156,8 +156,10 @@ a.custom-card:hover {
 .btn {
   max-width: 50%;
   max-height: 50%;
+  text-align: center;
 }
 
 .container {
-  text-align: center;
+  text-align: left;
 }
+
