@@ -61,7 +61,7 @@ function showComments(array) {
         let nopintadas = `<span class="fa fa-star"></span>`.repeat(5-comentario.score);
 
         htmlContentToAppend += `
-        <div class="list-group">
+        <div>
              <div class="d-flex flex-row comment-row m-t-0">
                 <div class="comment-text w-100">
                     <h6 class="font-weight-bold">${comentario.user}</h6> 
@@ -102,7 +102,7 @@ function newComment () {
     htmlContentToAppend = "";
 
     htmlContentToAppend = `
-    <div class="list-group">
+    <div>
          <div class="d-flex flex-row comment-row m-t-0">
             <div class="comment-text w-100">
                 <h6 class="font-weight-bold">${usuarioComment}</h6> 
