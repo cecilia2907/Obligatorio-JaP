@@ -78,6 +78,8 @@ function showComments(array) {
     }
 }
 
+//Función que agrega un nuevo comentario
+
 function newComment () {
 
     let inputComment = document.getElementById("inputComment").value;
@@ -95,8 +97,7 @@ function newComment () {
     let fechaLargaComment = new Date();
     let fecha = fechaLargaComment.getFullYear()+ `-` +(fechaLargaComment.getMonth() + 1)+ `-` +(fechaLargaComment.getDay() + 1);
     let hora = fechaLargaComment.getHours()+`:`+fechaLargaComment.getMinutes()+`:`+fechaLargaComment.getSeconds();
-
-    //console.log(fechaComment);
+    //console.log(fechaLargaComment);
     
     htmlContentToAppend = "";
 
@@ -164,6 +165,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 }
             });
 
+            //Muestro el nuevo comentario al submit el formulario
             document.getElementById("newComment").addEventListener("submit", function(event) {
                 event.preventDefault();
                 newComment();
