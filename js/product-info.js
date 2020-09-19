@@ -5,19 +5,24 @@ function showImagesGallery(array){
 
     let htmlContentToAppend = "";
 
-    for(let i = 0; i < array.length; i++){
+    for(let i=0; i<array.length; i++){
+        
         let imageSrc = array[i];
 
         htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
+        <div class="carousel-item" id="img${[i]}">
+            <img class="d-block w-100 img-fluid" src="${imageSrc}">
         </div>
+        
         `
-
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
+
+    console.log(htmlContentToAppend);
+    document.getElementById("imgList").innerHTML = htmlContentToAppend;
+    
+    let img1 = document.getElementById("img0")
+    img1.classList.add("active");
+    
 }
 
 //Función que muestra los productos relacionados del array Productos de acuerdo al array del product-info
@@ -34,18 +39,20 @@ function showRelatedProducts(array1, array2) {
         //console.log(productList);
 
         htmlContentToAppend += `
-        <div class="card" style="width: 18rem;">
+        <div class="card m-1" style="width: 18rem;">
             <img class="card-img-top" src="` + array2[relacionado].imgSrc +` " alt="Card image cap">
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
                 <h5 class="card-title"> ` + array2[relacionado].name +`</h5>
                 <p class="card-text">`+ array2[relacionado].description+`</p>
-                <a href="product-info.html" class="btn btn-primary">Ver producto</a>
+                <a href="product-info.html" class="btn btn-secondary mt-auto">Ver producto</a>
             </div>
         </div>
         `
         relatedProducts.innerHTML = htmlContentToAppend;
     }
 };
+
+//
 
 //Función que muestra los comentarios
 
@@ -85,7 +92,7 @@ function newComment () {
     let inputComment = document.getElementById("inputComment").value;
     //console.log(inputComment);
     
-    let usuarioComment = localStorage.getItem("Usuario");
+    //let usuarioComment = localStorage.getItem("Usuario");
     //console.log(usuarioComment);
 
     let inputScore = document.getElementById("inputScore").value;
@@ -94,22 +101,46 @@ function newComment () {
     let pintadas = `<span class="fa fa-star checked"></span>`.repeat(inputScore);
     let nopintadas = `<span class="fa fa-star"></span>`.repeat(5 - inputScore);
 
-    let fechaLargaComment = new Date();
-    let fecha = fechaLargaComment.getFullYear()+ `-` +(fechaLargaComment.getMonth() + 1)+ `-` +(fechaLargaComment.getDay() + 1);
-    let hora = fechaLargaComment.getHours()+`:`+fechaLargaComment.getMinutes()+`:`+fechaLargaComment.getSeconds();
-    //console.log(fechaLargaComment);
+    let fechaLarga = new Date();
+
+    let ano = fechaLarga.getFullYear()
+    let mes = (fechaLarga.getMonth() + 1);
+    let dia = (fechaLarga.getDay() + 1);
+    let hora = fechaLarga.getHours();
+    let min = fechaLarga.getMinutes();
+    let sec = fechaLarga.getSeconds();
+
+    if (mes<10) {
+        mes = "0" + mes
+    }
+    if (dia<10) {
+        dia = "0" + dia
+    }
+    if (hora<10) {
+        hora = "0" + hora
+    }
+    if (min<10) {
+        min = "0" + min
+    }
+    if (sec<10) {
+        sec = "0" + sec
+    }
     
+    let fechaComment = ano+ `-` +mes+ `-`+dia;
+    let horaComment = hora+ `:`+min+ `:`+sec;
+
+
     htmlContentToAppend = "";
 
     htmlContentToAppend = `
     <div>
          <div class="d-flex flex-row comment-row m-t-0">
             <div class="comment-text w-100">
-                <h6 class="font-weight-bold">${usuarioComment}</h6> 
+                <h6 class="font-weight-bold">${usuario}</h6> 
                 <div class="rating">${pintadas}${nopintadas}</div>
                 <span class="m-b-15 d-block">${inputComment}</span>
             <div class="comment-footer"> 
-                <span class="text-muted float-right">${fecha} ${hora}</span> 
+                <span class="text-muted float-right">${fechaComment} ${horaComment}</span> 
             </div>
         </div>
     </div>
@@ -117,6 +148,7 @@ function newComment () {
     `
 
     document.getElementById("listaDeComentarios").innerHTML += htmlContentToAppend;
+    document.getElementById("newCommentForm").reset();
 }
 
 
@@ -166,9 +198,10 @@ document.addEventListener("DOMContentLoaded", function(e){
             });
 
             //Muestro el nuevo comentario al submit el formulario
-            document.getElementById("newComment").addEventListener("submit", function(event) {
+            document.getElementById("newCommentForm").addEventListener("submit", function(event) {
                 event.preventDefault();
                 newComment();
+                
             });
             
         }

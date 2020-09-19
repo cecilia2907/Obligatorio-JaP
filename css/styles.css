@@ -153,7 +153,7 @@ a.custom-card:hover {
   text-align: center;
 }
 
-.btn {
+#botonIngreso {
   max-width: 50%;
   max-height: 50%;
   text-align: center;
@@ -163,3 +163,7 @@ a.custom-card:hover {
   text-align: left;
 }
 
+#ImagesCarousel {
+  max-width: 100%; 
+  height: auto
+}
