@@ -67,21 +67,22 @@ function showComments(array) {
         let pintadas = `<span class="fa fa-star checked"></span>`.repeat(comentario.score);
         let nopintadas = `<span class="fa fa-star"></span>`.repeat(5-comentario.score);
 
-        htmlContentToAppend += `
-        <div>
-             <div class="d-flex flex-row comment-row m-t-0">
+        htmlContentToAppend = `
+        <div class="col-6 border rounded">
+            <div class="d-flex flex-row comment-row m-t-0">
                 <div class="comment-text w-100">
                     <h6 class="font-weight-bold">${comentario.user}</h6> 
                     <div class="rating">${pintadas}${nopintadas}</div>
                     <span class="m-b-15 d-block">${comentario.description}</span>
-                <div class="comment-footer"> 
-                    <span class="text-muted float-right">${comentario.dateTime}</span> 
+                    <div class="comment-footer"> 
+                        <span class="text-muted float-right">${comentario.dateTime}</span> 
+                    </div>
                 </div>
             </div>
         </div>
         <br>
         `
-        document.getElementById("listaDeComentarios").innerHTML = htmlContentToAppend;
+        document.getElementById("listaDeComentarios").innerHTML += htmlContentToAppend;
     }
 }
 
@@ -91,9 +92,6 @@ function newComment () {
 
     let inputComment = document.getElementById("inputComment").value;
     //console.log(inputComment);
-    
-    //let usuarioComment = localStorage.getItem("Usuario");
-    //console.log(usuarioComment);
 
     let inputScore = document.getElementById("inputScore").value;
     //console.log(inputScore);
@@ -133,14 +131,15 @@ function newComment () {
     htmlContentToAppend = "";
 
     htmlContentToAppend = `
-    <div>
-         <div class="d-flex flex-row comment-row m-t-0">
+    <div class="col-6 border rounded">
+        <div class="d-flex flex-row comment-row m-t-0">
             <div class="comment-text w-100">
                 <h6 class="font-weight-bold">${usuario}</h6> 
                 <div class="rating">${pintadas}${nopintadas}</div>
                 <span class="m-b-15 d-block">${inputComment}</span>
-            <div class="comment-footer"> 
-                <span class="text-muted float-right">${fechaComment} ${horaComment}</span> 
+                <div class="comment-footer"> 
+                    <span class="text-muted float-right">${fechaComment} ${horaComment}</span> 
+                </div>
             </div>
         </div>
     </div>
